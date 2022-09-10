@@ -4,7 +4,6 @@ public class LabAct_2 {
 
     public static void main(String args[]){
         String input;
-        boolean accepted;
 
         do{
             input = getString("Input String: ");
