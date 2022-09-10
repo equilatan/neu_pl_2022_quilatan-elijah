@@ -52,9 +52,7 @@ public class LabAct_2 {
     }
 
     static void tryAgain(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Would you like to input another string? [y/n]: ");
-        char yesOrNo = scan.next().charAt(0);
+        char yesOrNo = getString("Would you like to input another string? [y/n]: ").charAt(0);
         switch(yesOrNo){
             case 'y' : System.out.println(); break;
             case 'n' : System.exit(0); break;
