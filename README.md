@@ -10,7 +10,9 @@ Repository for CCS314-18/CSL314-18 Theory on Programming Languages
 <br><br><br>
 
 
-<h1>Terminal Commands:</h1> in case elijah forgets
+<h1>Terminal Commands:</h1> 
+
+<h6>because I have short-term memory</h6>
 
 $ git remote add origin {github link} 
 
