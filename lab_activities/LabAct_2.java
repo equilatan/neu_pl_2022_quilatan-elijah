@@ -7,10 +7,10 @@ public class LabAct_2 {
 
         do{
             input = getString("Input String: ");
-        }while(processDFA(input)==false);
+        }while(!acceptedByDFA(input));
     }
 
-    static boolean processDFA(String input){
+    static boolean acceptedByDFA(String input){
         String state = "q0";
 
         for (int i = 0; i < input.length(); i++){
