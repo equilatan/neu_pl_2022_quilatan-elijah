@@ -10,42 +10,47 @@ public class LabAct_3 {
         System.out.print("Input single line code: ");
         String input = new Scanner(System.in).nextLine();
 
-        String inChar="";
+        String inputChar="";
         boolean strChk=false;
 
         List<String> lexeme = new ArrayList<String>();
         List<String> token = new ArrayList<String>();
 
+        //iterate each character from the string input
         for(int i=0; i<input.length(); i++){
 
-            inChar+=input.charAt(i);
+            inputChar+=input.charAt(i);
 
+            //checks if the string is in quotation marks
             if(isApostrophe(input.charAt(i))) {
                 strChk = toggleBool(strChk);
             }
 
+            //if the string is not in quotation, do this
             if(strChk!=true) {
 
+                //splits the string before equals and semicolon
                 if(input.charAt(i)=='=' || input.charAt(i)==';') {
-                    lexeme.add(inChar.substring(0, inChar.length() - 1));
+                    lexeme.add(inputChar.substring(0, inputChar.length() - 1));
                     lexeme.add("" + input.charAt(i));
-                    inChar="";
+                    inputChar="";
                 }
-
+                //splits the string for every whitespace
                 else if(input.charAt(i)==' ') {
-                    lexeme.add(inChar.replaceAll("\\s+$", ""));
-                    inChar="";
+                    lexeme.add(inputChar.replaceAll("\\s+$", ""));
+                    inputChar="";
                 }
 
             }
         }
-        lexeme.add(inChar.replaceAll("\\s+$", ""));
+        //to make sure the last string is added in the arraylist
+        lexeme.add(inputChar.replaceAll("\\s+$", ""));
+        //remove all empty strings in the arraylist
         lexeme.removeAll(Arrays.asList("", null));
-        System.out.println(lexeme);
 
 
+        //categorizes the lexemes into their respective tokens
         for(String lex : lexeme) {
-
             if(isDataType(lex)) {
                 token.add("<data_type> ");
             }
@@ -63,11 +68,14 @@ public class LabAct_3 {
             }
         }
 
+        //print the tokens in order
         for(String s : token) {
             System.out.print(s + " ");
         }
 
     }
+
+    //methods used for categorizing/checking
 
     public static boolean toggleBool(boolean b) {
         if(b==true) return false;
@@ -81,12 +89,14 @@ public class LabAct_3 {
         }
         return false;
     }
+
     private static boolean isValue(String s) {
         if(s.contains("“") || s.contains("”") || s.contains("\"") || s.contains("\'") || s.matches("[0-9]*\\.?[0-9]*")) {
             return true;
         }
         return false;
     }
+
     private static boolean isIdentifier(String s) {
 
         if(s.matches("^[a-zA-Z0-9_.-]*$") && (!s.contains("\"") || !s.contains("\'") || !s.matches("[0-9]*\\.?[0-9]*")))
@@ -112,18 +122,4 @@ public class LabAct_3 {
         }
         return false;
     }
-
-    public static boolean isOperator(char c) {
-
-        char[] operator = {'+','=','-','/','*','%'};
-
-        for(char op : operator) {
-            if(c==op) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
 }
