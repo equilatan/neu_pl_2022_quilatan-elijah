@@ -2,7 +2,7 @@
 Repository for CCS314-18/CSL314-18 Theory on Programming Languages 
 
 <br>
-note: the contributor Giruthanda is my other personal account which was accidentally added here
+note: the contributor Giruthanda is my other personal account which was accidentally added here because Intellij keeps mixing up my 2 accounts. 
 
 <h3>Laboratory Activities:</h3>
 
