@@ -10,7 +10,7 @@ public class LabAct_3 {
         System.out.print("Input single line code: ");
         String input = new Scanner(System.in).nextLine();
 
-        String inputChar="";
+        String inputStrSpecific="";
         boolean strChk=false;
 
         List<String> lexeme = new ArrayList<String>();
@@ -19,7 +19,7 @@ public class LabAct_3 {
         //iterate each character from the string input
         for(int i=0; i<input.length(); i++){
 
-            inputChar+=input.charAt(i);
+            inputStrSpecific+=input.charAt(i);
 
             //checks if the string is in quotation marks
             if(isApostrophe(input.charAt(i))) {
@@ -31,20 +31,20 @@ public class LabAct_3 {
 
                 //splits the string before equals and semicolon
                 if(input.charAt(i)=='=' || input.charAt(i)==';') {
-                    lexeme.add(inputChar.substring(0, inputChar.length() - 1));
+                    lexeme.add(inputStrSpecific.substring(0, inputStrSpecific.length() - 1));
                     lexeme.add("" + input.charAt(i));
-                    inputChar="";
+                    inputStrSpecific="";
                 }
                 //splits the string for every whitespace
                 else if(input.charAt(i)==' ') {
-                    lexeme.add(inputChar.replaceAll("\\s+$", ""));
-                    inputChar="";
+                    lexeme.add(inputStrSpecific.replaceAll("\\s+$", ""));
+                    inputStrSpecific="";
                 }
 
             }
         }
         //to make sure the last string is added in the arraylist
-        lexeme.add(inputChar.replaceAll("\\s+$", ""));
+        lexeme.add(inputStrSpecific.replaceAll("\\s+$", ""));
         //remove all empty strings in the arraylist
         lexeme.removeAll(Arrays.asList("", null));
 
