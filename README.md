@@ -5,6 +5,7 @@ Repository for CCS314-18/CSL314-18 Theory on Programming Languages
 
 1. Palindrome Checker
 2. DFA in Java
+3. Tokenizer/Lexical Analyzer
 
 
 <br><br><br>
