@@ -11,7 +11,7 @@ public class LabAct_3 {
         String input = new Scanner(System.in).nextLine();
 
         String inputStrSpecific="";
-        boolean strChk=false;
+        boolean quoteChk=false;
 
         List<String> lexeme = new ArrayList<String>();
         List<String> token = new ArrayList<String>();
@@ -23,11 +23,11 @@ public class LabAct_3 {
 
             //checks if the string is in quotation marks
             if(isApostrophe(input.charAt(i))) {
-                strChk = toggleBool(strChk);
+                quoteChk = toggleBool(quoteChk);
             }
 
             //if the string is not in quotation, do this
-            if(strChk!=true) {
+            if(quoteChk!=true) {
 
                 //splits the string before equals and semicolon
                 if(input.charAt(i)=='=' || input.charAt(i)==';') {
@@ -52,19 +52,19 @@ public class LabAct_3 {
         //categorizes the lexemes into their respective tokens
         for(String lex : lexeme) {
             if(isDataType(lex)) {
-                token.add("<data_type> ");
+                token.add("<data_type>");
             }
             else if(isAssnOperator(lex)) {
-                token.add("<assignment_operator> ");
+                token.add("<assignment_operator>");
             }
             else if(isValue(lex)) {
-                token.add("<value> ");
+                token.add("<value>");
             }
             else if(isIdentifier(lex)) {
-                token.add("<identifier> ");
+                token.add("<identifier>");
             }
             else if(lex.matches(";")) {
-                token.add("<delimiter> ");
+                token.add("<delimiter>");
             }
         }
 
