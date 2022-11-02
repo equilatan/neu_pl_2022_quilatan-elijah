@@ -9,6 +9,8 @@ note: the contributor Giruthanda is my other personal account which was accident
 1. Palindrome Checker
 2. DFA in Java
 3. Tokenizer/Lexical Analyzer
+4. Syntax Analyzer
+5. Semantic Analyzer
 
 
 <br><br><br>
