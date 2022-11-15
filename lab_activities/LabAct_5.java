@@ -51,17 +51,17 @@ public class LabAct_5 {
 		expList.removeAll(Arrays.asList("", null));
 		expList.removeAll(Arrays.asList(" ", null));
 		
-		for(String s : expList)
-			System.out.println(s);
-		
 		String dataType, name, value;
 		
-		//only for declaration
-		if(expList.size() == 3) {
+		//for declaration
+		if(expList.size() == 3 && expression.charAt(expression.length()-1) == ';') {
 			dataType = expList.get(0);
 			name = expList.get(1);
+				
+				if(name.matches("^[A-Za-z_][A-Za-z0-9_]*$") && dataTypeCheck(dataType))
+					System.out.println("Semantically Correct!");
+				else System.out.println("Semantically Incorrect!");
 			
-			System.out.println("Semantically Correct!");
 		}
 		//for initialization
 		else if (expList.size() > 3){
@@ -97,6 +97,17 @@ public class LabAct_5 {
 		expList.add(truncLast(expStrSpecific));
 		expList.add(symbol);
 		expStrSpecific="";
+	}
+	
+	public static boolean dataTypeCheck(String dataType) {
+		
+		String[] typeArr = {"int","double","String","float","boolean"};
+		
+		for(int i = 0; i < typeArr.length; i++) {
+			if(dataType.matches(typeArr[i]))
+				return true;
+		}
+		return false;
 	}
 	
 	public static boolean semanticCheck(String dataType, String value) {
