@@ -67,7 +67,7 @@ public class LabAct_5 {
 		//for initialization
 		else if (expList.size() > 3){
 			dataType = expList.get(0);
-			name = expList.get(1);
+			name = expList.get(1); 
 			value = expList.get(3);
 			
 			//check if variable name starts with letter only, and check value & datatype if valid
