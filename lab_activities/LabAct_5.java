@@ -59,7 +59,7 @@ public class LabAct_5 {
 			name = expList.get(1);
 				
 			//check if variable name starts with letter only, and check data type if valid
-				if(name.matches("^[A-Za-z_][A-Za-z0-9_]*$") && dataTypeCheck(dataType))
+				if(nameCheck(name)  && dataTypeCheck(dataType))
 					System.out.println("Semantically Correct!");
 				else System.out.println("Semantically Incorrect!");
 			
@@ -71,7 +71,7 @@ public class LabAct_5 {
 			value = expList.get(3);
 			
 			//check if variable name starts with letter only, and check value & datatype if valid
-			if(name.matches("^[A-Za-z_][A-Za-z0-9_]*$") && semanticCheck(dataType, value)) {
+			if(nameCheck(name) && semanticCheck(dataType, value)) {
 				System.out.println("Semantically Correct!");
 			}
 			else System.out.println("Semantically Incorrect!");
@@ -100,6 +100,31 @@ public class LabAct_5 {
 		expList.add(symbol);
 		expStrSpecific="";
 	}
+	
+	public static boolean nameCheck(String name) {
+		
+		//List of non-available names
+		String[] nameArr = {"abstract","continue","for","new","switch","assert",
+				"package","synchronized","default","goto","boolean","do","if",
+				"private","this","break","else","import","public","throw","byte",
+				"enum","implements","protected","throws","case","double","instanceof",
+				"return","transient","catch","extends","int","short","try","char","final",
+				"interface","static","void","class","finally","long","strictfp","volatile",
+				"const","float","native","super","while"};
+		
+		//check if name starts with letters only
+		if(name.matches("^[A-Za-z_][A-Za-z0-9_]*$")) {
+			
+			//check if name matches keywords
+			for(String notAllowed : nameArr) 
+				if(name.matches(notAllowed))
+					return false;
+			
+			return true;
+		}
+		return false;
+	}
+	
 	
 	public static boolean dataTypeCheck(String dataType) {
 		
