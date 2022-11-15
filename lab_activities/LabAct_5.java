@@ -58,6 +58,7 @@ public class LabAct_5 {
 			dataType = expList.get(0);
 			name = expList.get(1);
 				
+			//check if variable name starts with letter only, and check data type if valid
 				if(name.matches("^[A-Za-z_][A-Za-z0-9_]*$") && dataTypeCheck(dataType))
 					System.out.println("Semantically Correct!");
 				else System.out.println("Semantically Incorrect!");
@@ -69,7 +70,8 @@ public class LabAct_5 {
 			name = expList.get(1);
 			value = expList.get(3);
 			
-			if(semanticCheck(dataType, value)) {
+			//check if variable name starts with letter only, and check value & datatype if valid
+			if(name.matches("^[A-Za-z_][A-Za-z0-9_]*$") && semanticCheck(dataType, value)) {
 				System.out.println("Semantically Correct!");
 			}
 			else System.out.println("Semantically Incorrect!");
