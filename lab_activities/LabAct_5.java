@@ -10,7 +10,7 @@ public class LabAct_5 {
 	
 	public static void main(String[] args) {
 		
-		//Note: This algorithm assumes that the expression is already syntactically correct.
+		//Note: This algorithm mostly assumes that the expression is already syntactically correct.
 		
 		String expression = getInput("Enter Expression: "); //input expression
 		char expressionChar; 								//individual char of expression
@@ -65,7 +65,7 @@ public class LabAct_5 {
 			
 		}
 		//for initialization
-		else if (expList.size() > 3){
+		else if (expList.size() > 3 && expression.charAt(expression.length()-1) == ';'){
 			dataType = expList.get(0);
 			name = expList.get(1); 
 			value = expList.get(3);
