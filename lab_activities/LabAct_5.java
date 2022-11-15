@@ -132,7 +132,7 @@ public class LabAct_5 {
 				return true;
 			break;
 		case "String":
-			if(value.charAt(0) == '"' && value.charAt(value.length()-1) == '"')
+			if(isApostrophe(value.charAt(0))&& isApostrophe(value.charAt(value.length()-1)))
 				return true;
 			break;
 		case "boolean":
